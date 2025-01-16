@@ -1,5 +1,13 @@
 package com.ecommerce.service;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
+import com.ecommerce.api.model.User;
+
 @Service 
 public class UserService {
     private List<User> userList;
@@ -16,5 +24,23 @@ public class UserService {
 
     public User getUser(int id) {
         return userList.stream().filter(user -> user.getId() == id).findFirst().orElse(null);
+    }
+
+    public User getUsers () {
+        return (User) userList;
+    }
+
+    public User deleteUser(int id) {
+        userList.removeIf(user -> user.getId() == id);
+                return null;
+    }
+
+    public User updateUser(int id, User user) {
+        userList.stream().filter(u -> u.getId() == id).forEach(u -> {
+            u.setName(user.getName());
+            u.setAge(user.getAge());
+            u.setEmail(user.getEmail());
+        });
+                return user;
     }
 }
