@@ -35,10 +35,7 @@ public class UserController {
     @GetMapping("/user")
     public User getUser(@RequestParam int id) {
         Optional<User> user = userService.getUser(id);
-        if (user.isPresent()) {
-            return (User) user.get();
-        }
-        return null;
+        return user.orElse(null); 
     }
 
     // @PostMapping("/users")
