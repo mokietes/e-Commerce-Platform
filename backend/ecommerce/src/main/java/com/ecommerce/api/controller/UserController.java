@@ -31,24 +31,25 @@ public class UserController {
     }
 
     // @SuppressWarnings("unchecked")
-    // @GetMapping("/users")
-    // public List<User> getUsers() {
-    //     return (List<User>) userService.getUsers();
-    // }
+    
+    @GetMapping("")
+    public List<User> getAllUsers() {
+        return userService.getAllUsers();
+    }
 
-    @GetMapping("/user")
-    public User getUser(@RequestParam int id) {
-        Optional<User> user = userService.getUser(id);
+    @GetMapping("/{id}")
+    public User getUserID(@RequestParam int id) {
+        Optional<User> user = userService.getUserID(id);
         return user.orElse(null); 
     }
 
     @ResponseStatus(HttpStatus.CREATED) 
-    @PostMapping("/users")
+    @PostMapping("")
     public void addUser(@RequestBody User user) {
         userService.addUser(user);
     }
 
-    // @PutMapping("/users/{id}")
+    // @PutMapping("{id}")
     // public void updateUser(@RequestBody User user, @PathVariable int id) {
     //     userService.updateUser(id, user);
     // }

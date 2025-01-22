@@ -27,14 +27,13 @@ public class UserService {
         userList.addAll(Arrays.asList(user1, user2, user3, user4, user5, user6));
     }
 
-    public void getUser(int id) {
-        Optional<User> user = userList.stream().filter(u -> u.getId() == id).findFirst();
-        System.out.println(user.orElse(null));
+    public Optional<User> getUserID(int id) {
+        return userList.stream().filter(user -> user.getId() == id).findFirst();
     }
 
-    // public User getUsers () {
-    //     return (User) userList;
-    // }
+    public  List<User> getAllUsers() {
+        return userList;
+    }
 
     // public User deleteUser(int id) {
     //     userList.removeIf(user -> user.getId() == id);
