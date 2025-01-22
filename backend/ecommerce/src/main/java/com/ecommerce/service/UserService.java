@@ -27,18 +27,10 @@ public class UserService {
         userList.addAll(Arrays.asList(user1, user2, user3, user4, user5, user6));
     }
 
-    public Optional <User> getUser(int id) {
-        Optional optional = Optional.empty();
-        for (User user : userList) {
-            if (id == user.getId()) {
-                optional = Optional.of(user);
-                return optional;
-            }
-        }
-        return Optional.empty();
+    public void getUser(int id) {
+        Optional<User> user = userList.stream().filter(u -> u.getId() == id).findFirst();
+        System.out.println(user.orElse(null));
     }
-
-
 
     // public User getUsers () {
     //     return (User) userList;
@@ -49,14 +41,15 @@ public class UserService {
     //             return null;
     // }
 
-    // public User updateUser(int id, User user) {
-    //     userList.stream().filter(u -> u.getId() == id).forEach(u -> {
-    //         u.setName(user.getName());
-    //         u.setAge(user.getAge());
-    //         u.setEmail(user.getEmail());
-    //     });
-    //             return user;
-    // }
+    public void updateUser(int id, User user) {
+        Optional<User> userOptional = userList.stream().filter(u -> u.getId() == id).findFirst();
+        if (userOptional.isPresent()) {
+            User u = userOptional.get();
+            u.setName(user.getName());
+            u.setAge(user.getAge());
+            u.setEmail(user.getEmail());
+        }
+    }
 
     public void addUser(User user) {
         userList.add(user); 
