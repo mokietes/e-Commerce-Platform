@@ -29,8 +29,6 @@ public class UserController {
     public UserController(UserService userService) {
         this.userService = userService;
     }
-
-    // @SuppressWarnings("unchecked")
     
     @GetMapping("")
     public List<User> getAllUsers() {
@@ -49,13 +47,13 @@ public class UserController {
         userService.addUser(user);
     }
 
-    // @PutMapping("{id}")
-    // public void updateUser(@RequestBody User user, @PathVariable int id) {
-    //     userService.updateUser(id, user);
-    // }
+    @PutMapping("{id}")
+    public void updateUser(@RequestBody User user, @PathVariable int id) {
+        userService.updateUser(id, user);
+    }
 
-    // @DeleteMapping("/users/{id}")
-    // public void deleteUser(@PathVariable int id) {
-    //     userService.deleteUser(id);
-    // }
+    @DeleteMapping("/users/{id}")
+    public void deleteUser(@PathVariable int id) {
+        userService.deleteUser(id);
+    }
 }

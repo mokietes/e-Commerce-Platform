@@ -35,10 +35,10 @@ public class UserService {
         return userList;
     }
 
-    // public User deleteUser(int id) {
-    //     userList.removeIf(user -> user.getId() == id);
-    //             return null;
-    // }
+    public User deleteUser(int id) {
+        userList.removeIf(user -> user.getId() == id);
+                return null;
+    }
 
     public void updateUser(int id, User user) {
         Optional<User> userOptional = userList.stream().filter(u -> u.getId() == id).findFirst();
