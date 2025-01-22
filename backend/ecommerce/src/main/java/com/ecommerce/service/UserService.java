@@ -39,6 +39,7 @@ public class UserService {
     }
 
 
+
     // public User getUsers () {
     //     return (User) userList;
     // }
@@ -57,7 +58,7 @@ public class UserService {
     //             return user;
     // }
 
-    // public void addUser(User user) {
-    //     userList.add(user); 
-    // }
+    public void addUser(User user) {
+        userList.add(user); 
+    }
 }
