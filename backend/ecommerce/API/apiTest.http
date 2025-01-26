@@ -1,0 +1,42 @@
+### Find ALl Runs
+GET http://localhost:8080/api/runs
+
+### Find Run By ID
+GET http://localhost:8080/api/runs/2
+
+
+### Create new Run
+POST http://localhost:8080/api/runs
+Content-Type: application/json
+
+{
+  "id": 7,
+  "name": "mekonnen",
+  "age": 62,
+  "email": "mekonnen@gmail.com"
+}
+
+### Create new Run with invalid dates (completedOn is before startedOn)
+POST http://localhost:8080/api/runs
+Content-Type: application/json
+
+{
+  "id": 11,
+  "name": "Awet",
+  "age": 46,
+  "email": "awet@gmail.com"
+}
+
+### Update an existing Run
+PUT http://localhost:8080/api/runs/11
+Content-Type: application/json
+
+{
+  "id": 12,
+  "name": "Famit",
+  "age": 36,
+  "email": "famit@gmail.com"
+}
+
+### Delete a Run
+DELETE http://localhost:8080/api/runs/11
