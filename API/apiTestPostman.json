@@ -27,7 +27,7 @@
         "response": []
       },
       {
-        "name": "findById",
+        "name": "getUserID",
         "request": {
           "method": "GET",
           "header": [],
@@ -48,7 +48,7 @@
         "response": []
       },
       {
-        "name": "create",
+        "name": "addUser",
         "request": {
           "method": "POST",
           "header": [],
@@ -77,7 +77,7 @@
         "response": []
       },
       {
-        "name": "update",
+        "name": "updateUser",
         "request": {
           "method": "PUT",
           "header": [],
@@ -107,7 +107,7 @@
         "response": []
       },
       {
-        "name": "delete",
+        "name": "deleteUser",
         "request": {
           "method": "DELETE",
           "header": [],

@@ -18,7 +18,7 @@ import com.ecommerce.api.model.User;
 import com.ecommerce.service.UserService;
 
 @RestController 
-@RequestMapping("/api")
+@RequestMapping("/api/runs")
 public class UserController {
     
     private final UserService userService;
@@ -33,9 +33,9 @@ public class UserController {
     }
 
     @GetMapping("/{id}")
-    public User getUserID(@RequestParam int id) {
+    public User getUserID(@PathVariable int id) {
         Optional<User> user = userService.getUserID(id);
-        return user.orElse(null); 
+        return user.orElse(null);  
     }
 
     @ResponseStatus(HttpStatus.CREATED) 
@@ -44,12 +44,12 @@ public class UserController {
         userService.addUser(user);
     }
 
-    @PutMapping("{id}")
+    @PutMapping("/{id}")
     public void updateUser(@RequestBody User user, @PathVariable int id) {
         userService.updateUser(id, user);
     }
 
-    @DeleteMapping("/users/{id}")
+    @DeleteMapping("/{id}")
     public void deleteUser(@PathVariable int id) {
         userService.deleteUser(id);
     }

@@ -23,13 +23,14 @@ public class UserService {
         return user.stream().filter(user -> user.getId() == id).findFirst();
     }
 
+    
+
     public  List<User> getAllUsers() {
         return user;
     }
 
     public User deleteUser(int id) {
-        user.removeIf(user -> user.getId() == id);
-                return null;
+        return user.remove(id);
     }
 
     public void updateUser(int id, User user) {
